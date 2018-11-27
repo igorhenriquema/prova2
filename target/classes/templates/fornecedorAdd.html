@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Cadastro de Clientes</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="panel panel-default">
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="#">Controle de Estoque</a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		      <li><a th:href="@{/cliente/}">Cliente</a></li>
+		      <li><a th:href="@{/funcionario/}">Funcionario</a></li>
+		      <li><a th:href="@{/fornecedor/}">Fornecedor</a></li>
+		      <li><a th:href="@{/produto/}">Produto</a></li>
+		      <li><a th:href="@{/venda/}">Venda</a></li>
+		      <li><a th:href="@{/estoque/}">Estoque</a></li>
+		    </ul>
+		  </div>
+		</nav>
+		<div class="panel-body">
+			<form class="form-horizontal" th:object="${fornecedor}" th:action="@{/fornecedor/save}" method="POST" style="margin: 10px">
+				<div class="form-group">
+ 					<fieldset>
+						<div class="form-group row">
+							<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+								<div th:each="detailedError : ${#fields.detailedErrors()}">
+									<span th:text="${detailedError.message}"></span>
+								</div>
+							</div>
+						</div> 					
+						<div class="form-group row">
+						    <div class="col-md-1">
+						    	<label>ID</label>
+						        <input type="text" class="form-control input-sm" id="id" th:field="*{id}" readOnly="readonly"/>
+						    </div>
+						 </div>
+						 <div class="form-group row">                                                          
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('razaosocial')}? 'has-error'">
+							    <label>Razão social</label>
+							    <input type="text" class="form-control input-sm" th:field="*{razaosocial}" autofocus="autofocus" placeholder="Informe o Razão social" maxlength="250"/>
+							</div>
+							<div class="col-md-3" th:classappend="${#fields.hasErrors('cnpj')}? 'has-error'">
+							    <label>CNPJ</label>
+							    <input type="text" class="form-control input-sm" th:field="*{cnpj}" autofocus="autofocus" placeholder="Informe o CNPJ" maxlength="15"/>
+							</div>
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('endereco')}? 'has-error'">
+							    <label>Endereço</label>
+							    <input type="text" class="form-control input-sm" th:field="*{endereco}" autofocus="autofocus" placeholder="Informe o Endereço Completo" maxlength="255"/>
+							</div>
+							<!-- <td -->
+								<div class="col-md-4" th:classappend="${#fields.hasErrors('telefone')}? 'has-error'">
+							    	<label>Telefone</label>
+							    	<input type="text" class="form-control input-sm" th:field="*{telefone}" autofocus="autofocus" placeholder="Informe o Telefone" maxlength="9"/>
+								</div>
+						 </div>					
+					</fieldset>
+				</div>
+				<div class="form-group row">
+					<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+					<a th:href="@{/fornecedor/}" class="btn btn-sm btn-default">Cancelar</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

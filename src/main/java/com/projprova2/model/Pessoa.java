@@ -1,6 +1,5 @@
 package com.projprova2.model;
 
-import java.util.Date;
 import java.io.Serializable;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,10 +14,10 @@ public abstract class Pessoa implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
 	private String CPF;
 	private String RG;
 	private String nome;
-	private Date dt_nasc;
 	private String sexo;
 	private String endereco;
 	
@@ -40,12 +39,6 @@ public abstract class Pessoa implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Date getDt_nasc() {
-		return dt_nasc;
-	}
-	public void setDt_nasc(Date dt_nasc) {
-		this.dt_nasc = dt_nasc;
-	}
 	public String getSexo() {
 		return sexo;
 	}
@@ -58,5 +51,12 @@ public abstract class Pessoa implements Serializable{
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	
 }
