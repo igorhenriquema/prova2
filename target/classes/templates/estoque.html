@@ -13,7 +13,7 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Controle de Estoque</a>
+      <a class="navbar-brand" href="@{/telaInicial/}">Controle de Estoque</a>
     </div>
     <ul class="nav navbar-nav">
       <li><a th:href="@{/cliente/}">Cliente</a></li>
@@ -31,17 +31,17 @@
 					<thead>
 						<tr>
 							<th width="20">ID</th>
-							<th width="100">codigo</th>
-							<!-- <th width="100">QUANTIDADE MAXIMA</th>
-							<th width="200">QUANTIDADE MINIMA</th>  -->
+							<th width="100">Nome</th>
+							<th width="300">Quantidade Máxima de Produtos</th>
+							<th width="300">Quantidade Mínima de Produtos</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="estoque : ${estoques}">
 							<td th:text="${estoque.id}"></td>
-							<td th:text="${estoque.codigo}"></td>						
-							<!-- <td th:text="${estoque.qtd_max}"></td>
-							<td th:text="${estoque.qtd_min}"></td>  -->
+							<td th:text="${estoque.nome}"></td>						
+							<td th:text="${estoque.qtd_max}"></td>
+							<td th:text="${estoque.qtd_min}"></td>
 							<td>
 								<div class="btn-group pull-right">
 									<a class="btn btn-sm btn-warning" th:href="@{/produto/{codigo}(id=${estoque.id})}" >Produtos</a>

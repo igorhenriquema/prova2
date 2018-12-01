@@ -39,16 +39,13 @@ public class ProdutoController {
 
 	@GetMapping("/produto/add/")
 	public ModelAndView add(Produto produto) {
-		//if (cliente.login <= ) {
-					ModelAndView mv = new ModelAndView("/produtoAdd");
-					mv.addObject("produto", produto);
-			//}
+		ModelAndView mv = new ModelAndView("/produtoAdd");
+		mv.addObject("produto", produto);
 		return mv;
 	}
 
 	@GetMapping("/produto/edit/{id}")
 	public ModelAndView edit(@PathVariable("id") int id) {
-
 		return add(service.findOne(id));
 	}
 

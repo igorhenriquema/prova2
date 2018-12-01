@@ -14,7 +14,7 @@
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="#">Controle de Estoque</a>
+		      <a class="navbar-brand" href="@{/telaInicial/}">Controle de Estoque</a>
 		    </div>
 		    <ul class="nav navbar-nav">
 		      <li><a th:href="@{/cliente/}">Cliente</a></li>
@@ -42,14 +42,24 @@
 							    <label>Codigo</label>
 							    <input type="text" class="form-control input-sm" th:field="*{codigo}" autofocus="autofocus" placeholder="Informe o codigo" maxlength="11" />
 							</div>
-							<div class="col-md-2" th:classappend="${#fields.hasErrors('qtd_max')}? 'has-error'">
-							    <label>Quantidade maxima</label>
-							    <input type="text" class="form-control input-sm" th:field="*{qtd_max}" autofocus="autofocus" placeholder="Informe a quantidade maxima" maxlength="50"/>
+							<div class="col-md-2" th:classappend="${#fields.hasErrors('nome')}? 'has-error'">
+							    <label>Nome</label>
+							    <input type="text" class="form-control input-sm" th:field="*{nome}" autofocus="autofocus" placeholder="Informe o nome do Estoque" maxlength="255"/>
+							</div>
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('qtd_total')}? 'has-error'">
+							    <label>Quantidade Total</label>
+							    <input type="text" class="form-control input-sm" th:field="*{qtd_total}" autofocus="autofocus" placeholder="Informe a quantidade total para este Estoque" maxlength="50"/>
 							</div>
 							<div class="col-md-4" th:classappend="${#fields.hasErrors('qtd_min')}? 'has-error'">
-							    <label>Quantidade minima</label>
-							    <input type="text" class="form-control input-sm" th:field="*{qtd_min}" autofocus="autofocus" placeholder="Informe a quantidade minima" maxlength="50"/>
+							    <label>Quantidade Mínima</label>
+							    <input type="text" class="form-control input-sm" th:field="*{qtd_min}" autofocus="autofocus" placeholder="Informe a quantidade mínima" maxlength="50"/>
 							</div>
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('qtd_max')}? 'has-error'">
+							    <label>Quantidade Máxima</label>
+							    <input type="text" class="form-control input-sm" th:field="*{qtd_max}" autofocus="autofocus" placeholder="Informe a quantidade máxima" maxlength="50"/>
+							</div>
+							
+							
 						 </div>					
 					</fieldset>
 				</div>

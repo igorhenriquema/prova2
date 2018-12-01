@@ -13,7 +13,7 @@
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="#">Controle de Estoque</a>
+		      <a class="navbar-brand" href="@{/telaInicial/}">Controle de Estoque</a>
 		    </div>
 		    <ul class="nav navbar-nav">
 		      <li><a th:href="@{/cliente/}">Cliente</a></li>
@@ -49,7 +49,7 @@
 							</div>
 							<div class="col-md-2" th:classappend="${#fields.hasErrors('password')}? 'has-error'">
 							    <label>Senha</label>
-							    <input type="text" class="form-control input-sm" th:field="*{password}" autofocus="autofocus" placeholder="Informe a Senha" maxlength="250"/>
+							    <input type="password" class="form-control input-sm" th:field="*{password}" autofocus="autofocus" placeholder="Informe a Senha" maxlength="250"/>
 							</div>
 							<div class="col-md-4" th:classappend="${#fields.hasErrors('nome')}? 'has-error'">
 							    <label>Nome</label>
@@ -67,11 +67,11 @@
 							    <label>Endereço</label>
 							    <input type="text" class="form-control input-sm" th:field="*{endereco}" autofocus="autofocus" placeholder="Informe o Endereço Completo" maxlength="255"/>
 							</div>
-							<!-- <td -->
-								<div class="col-md-4" th:classappend="${#fields.hasErrors('sexo')}? 'has-error'">
-							    	<label>Sexo</label>
-							    	<input type="text" class="form-control input-sm" th:field="*{sexo}" autofocus="autofocus" placeholder="Informe o Sexo" maxlength="9"/>
-								</div>
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('sexo')}? 'has-error'">
+							    <label>Sexo</label>
+							    <input type="radio" name="sexo" value="Masculino" autofocus="autofocus" />Masculino<br />
+  								<input type="radio" name="sexo" value="Feminino" autofocus="autofocus" />Feminino<br />
+							</div>				
 						 </div>					
 					</fieldset>
 				</div>

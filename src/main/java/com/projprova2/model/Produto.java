@@ -2,12 +2,16 @@ package com.projprova2.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name="tb_produto")
@@ -17,10 +21,25 @@ public class Produto implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	
+	@Column(nullable = false, length = 255)
+	@NotBlank(message = "Nome é uma informação Obrigatória!")
 	private String nome;
+	
+	@Column(nullable = false, length = 255)
+	@NotBlank(message = "Descrição é uma informação Obrigatória!")
 	private String descricao;
+	
+	@Column(nullable = false)
+	@NotNull(message = "Código é uma informação Obrigatória!")
 	private int codigo;
+	
+	@Column(nullable = false)
+	@NotNull(message = "Preço de Custo é uma informação Obrigatória!")
 	private float preco_custo;
+	
+	@Column(nullable = false)
+	@NotNull(message = "Preço de Venda é informação Obrigatória!")
 	private float preco_venda;
 	
 	

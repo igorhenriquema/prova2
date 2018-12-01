@@ -2,11 +2,13 @@ package com.projprova2.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -15,10 +17,21 @@ public class Venda {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	
+	@Column(nullable = false)
+	@NotNull(message = "ID do Cliente é uma informação Obrigatória!")
 	private int id_cliente;
+	
+	@Column(nullable = false)
+	@NotNull(message = "ID do Funcionário é uma informação Obrigatória!")
 	private int id_funcionario;
+	
 	private Date dt_venda;
+	
+	@Column(nullable = false)
+	@NotNull(message = "Valor Total é uma informação Obrigatória!")
 	private float val_total;
+	
 	private Produto produtos;
 	public int getId() {
 		return id;

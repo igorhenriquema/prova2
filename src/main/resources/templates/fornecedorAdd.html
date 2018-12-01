@@ -13,7 +13,7 @@
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="#">Controle de Estoque</a>
+		      <a class="navbar-brand" href="@{/telaInicial/}">Controle de Estoque</a>
 		    </div>
 		    <ul class="nav navbar-nav">
 		      <li><a th:href="@{/cliente/}">Cliente</a></li>
@@ -58,7 +58,7 @@
 							<!-- <td -->
 								<div class="col-md-4" th:classappend="${#fields.hasErrors('telefone')}? 'has-error'">
 							    	<label>Telefone</label>
-							    	<input type="text" class="form-control input-sm" th:field="*{telefone}" autofocus="autofocus" placeholder="Informe o Telefone" maxlength="9"/>
+							    	<input type="text" class="form-control input-sm" th:field="*{telefone}" autofocus="autofocus" placeholder="Informe o Telefone" maxlength="16"/>
 								</div>
 						 </div>					
 					</fieldset>

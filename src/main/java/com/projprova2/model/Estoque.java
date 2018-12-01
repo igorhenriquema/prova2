@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.Column;
 
 
@@ -21,29 +23,40 @@ public class Estoque implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
-	@Column(nullable = false, length = 11)
+	@Column(nullable = false)
 	@NotNull(message = "Código é uma informação Obrigatória!")
 	private int codigo;
 	
-	@Column(nullable = false, length = 50)
+	@Column(nullable = false, length = 255)
+	@NotBlank(message = "Nome é uma informação Obrigatória!")
+	private String nome;
+	
+	@Column(nullable = false)
 	@NotNull(message = "Quantidade total deve ser informada!")
 	private double qtd_total;
 	
-	@Column(nullable = false, length = 50)
+	@Column(nullable = false)
 	@NotNull(message = "Quantidade minima deve ser informada!")
 	private double qtd_min;
 	
-	@Column(nullable = false, length = 50)
+	@Column(nullable = false)
 	@NotNull(message = "Quantidade máxima deve ser informada!")
 	private double qtd_max;
 	
 
 	
+
 	public int getCodigo() {
 		return codigo;
 	}
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	public int getId() {
 		return id;
