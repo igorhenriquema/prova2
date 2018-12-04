@@ -1,6 +1,5 @@
 package com.projprova2.controller;
 
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ public class EstoqueController {
 
 	@Autowired
 	private EstoqueService service;
-	
+
 	@GetMapping("/estoque/")
 	public ModelAndView findAll() {
 
@@ -31,14 +30,14 @@ public class EstoqueController {
 
 	@GetMapping("/estoque/add/")
 	public ModelAndView add(Estoque estoque) {
-			ModelAndView mv = new ModelAndView("/estoqueAdd");
-			mv.addObject("estoque", estoque);
+		ModelAndView mv = new ModelAndView("/estoqueAdd");
+		mv.addObject("estoque", estoque);
 		return mv;
 	}
 
 	@GetMapping("/estoque/edit/{id}")
 	public ModelAndView edit(@PathVariable("id") int id) {
-		
+
 		return add(service.findOne(id));
 	}
 
@@ -60,6 +59,12 @@ public class EstoqueController {
 		service.save(estoque);
 
 		return findAll();
+	}
+
+	@GetMapping("/estoque/editProd/{id}")
+	public ModelAndView editProd(@PathVariable("id") int id) {
+
+		return add(service.findOne(id));
 	}
 
 }

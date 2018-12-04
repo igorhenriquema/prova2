@@ -18,7 +18,7 @@ public class ProdutoService {
 	public Produto findOne(int id) {
 		return repository.findOne(id);
 	}
-	
+
 	public List<Produto> findByEstoque(int codigo) {
 		return repository.findByEstoque(codigo);
 	}

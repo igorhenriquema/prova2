@@ -27,12 +27,12 @@ public class ProdutoController {
 
 		return mv;
 	}
-	
-	@GetMapping("/produto/{codigo}")
-	public ModelAndView findByEstoque(@PathVariable("codigo") int codigo) {
+
+	@GetMapping("/produto/{id}")
+	public ModelAndView findByEstoque(@PathVariable("id") int id) {
 
 		ModelAndView mv = new ModelAndView("/produto");
-		mv.addObject("produtos", service.findByEstoque(codigo));
+		mv.addObject("produtos", service.findByEstoque(id));
 
 		return mv;
 	}

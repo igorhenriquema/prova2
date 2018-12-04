@@ -8,7 +8,7 @@ import com.projprova2.repository.EstoqueRepository;
 
 @Service
 public class EstoqueService {
-	
+
 	@Autowired
 	private EstoqueRepository repository;
 
@@ -19,7 +19,6 @@ public class EstoqueService {
 	public Estoque findOne(int id) {
 		return repository.findOne(id);
 	}
-	
 
 	public Estoque save(Estoque post) {
 		return repository.saveAndFlush(post);
